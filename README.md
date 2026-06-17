@@ -1,8 +1,15 @@
 # HELIX — AI inference you can verify.
 
+[![X: @helix_oracle](https://img.shields.io/badge/X-@helix_oracle-00d4ff?style=flat-square&logo=x&logoColor=white)](https://x.com/helix_oracle)
+[![GitHub: wpeggg1-web/helix](https://img.shields.io/badge/GitHub-wpeggg1__web%2Fhelix-ec4899?style=flat-square&logo=github)](https://github.com/wpeggg1-web/helix)
+[![Base](https://img.shields.io/badge/Base-mainnet-0052ff?style=flat-square)](https://basescan.org)
+[![Status: pre-launch](https://img.shields.io/badge/status-pre--launch-e8a040?style=flat-square)](#token)
+
 > Decentralized inference network on Base. Every output is provable. Every node is staked. Pay per call in $HELIX.
 
 **Status:** pre-launch. SDK scaffolded, site live, token deploys on Virtuals (Base, chain 8453).
+
+**Follow:** [@helix_oracle](https://x.com/helix_oracle) on X for launch updates.
 
 ## What it does
 
@@ -86,6 +93,13 @@ Token utility (design intent, subject to change):
 3. **Vouch for model version** — back a model, rewarded if popular
 4. **Dispute bond** — challenge output, refunded if upheld
 5. **Governance** — vote on whitelist + fee tiers
+
+## Links
+
+- **Website:** https://helix-iota-eosin.vercel.app
+- **X (Twitter):** [@helix_oracle](https://x.com/helix_oracle)
+- **GitHub:** https://github.com/wpeggg1-web/helix
+- **Virtuals (post-launch):** TBA
 
 ## License
 
