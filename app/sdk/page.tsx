@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CodeSamples from "@/components/CodeSamples";
+import { brand } from "@/lib/data";
 
 export const metadata = { title: "SDK" };
 
@@ -39,7 +40,7 @@ export default function SdkPage() {
       <Reveal delay={400}>
         <div className="mt-12 text-center">
           <p className="text-muted text-sm mb-4">SDK is in private alpha. Open-source repo:</p>
-          <Link href="https://github.com/caSSano22/helix" className="btn-secondary">github.com/caSSano22/helix ↗</Link>
+          <Link href={brand.githubUrl} className="btn-secondary">{brand.githubUrl.replace("https://", "")} ↗</Link>
         </div>
       </Reveal>
     </div>

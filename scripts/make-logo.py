@@ -165,7 +165,7 @@ def gen_og_image(out_path):
     draw.text((544, 422), "you can verify.", font=ImageFont.truetype(F_REG, 32), fill=(200, 200, 200))
 
     # Domain
-    draw.text((544, 500), "helix-oracle.vercel.app", font=ImageFont.truetype(F_MONO, 18), fill=(0, 212, 255))
+    draw.text((544, 500), "helix-iota-eosin.vercel.app", font=ImageFont.truetype(F_MONO, 18), fill=(0, 212, 255))
 
     img.convert("RGB").save(out_path, "PNG", optimize=True)
     print(f"  {out_path}  {os.path.getsize(out_path):,}B  {W}x{H}")
