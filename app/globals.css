@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --muted: #8a8a8a;
+  --dim: #5a5a5a;
+  --border: #1f1f1f;
+  --border-2: #2a2a2a;
+  --cyan: #00d4ff;
+  --cyan-dim: #008cb3;
+  --amber: #e8a040;
+  --amber-dim: #b07a2c;
+  --magenta: #ec4899;
+  --green: #4ade80;
+  --red: #f87171;
+  --yellow: #fbbf24;
+  --card: #0e0e0e;
+  --card-2: #141414;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-dim: var(--dim);
+  --color-border: var(--border);
+  --color-cyan: var(--cyan);
+  --color-amber: var(--amber);
+  --color-magenta: var(--magenta);
+  --color-card: var(--card);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html, body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Background grid === */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(31, 31, 31, 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 31, 31, 0.4) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: -1px -1px;
+}
+
+.bg-grid-fine {
+  background-image:
+    linear-gradient(rgba(31, 31, 31, 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 31, 31, 0.25) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* === Radial cyan glow === */
+.glow-cyan {
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 212, 255, 0.12), transparent 70%);
+}
+
+.glow-cyan-spot {
+  background: radial-gradient(circle at center, rgba(0, 212, 255, 0.15), transparent 60%);
+}
+
+/* === Animations === */
+
+/* 1. Hero glow pulse */
+@keyframes heroPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+.hero-pulse {
+  animation: heroPulse 4s ease-in-out infinite;
+}
+
+/* 2. Gradient text shimmer */
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.text-shimmer {
+  background: linear-gradient(90deg, #ededed 0%, #00d4ff 30%, #ec4899 60%, #ededed 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+/* 3. Card hover lift */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 200ms ease;
+}
+.card:hover {
+  border-color: var(--cyan-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.08);
+}
+
+/* 4. Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 5. Animated grid drift */
+@keyframes gridDrift {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+.grid-drift {
+  animation: gridDrift 20s linear infinite;
+}
+
+/* 6. Button shine */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.btn-shine:hover::after {
+  transform: translateX(100%);
+}
+
+/* 7. Rotating border */
+@keyframes rotateBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.rotating-border {
+  position: relative;
+}
+.rotating-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, var(--cyan), var(--magenta), var(--amber), var(--cyan));
+  z-index: -1;
+  animation: rotateBorder 4s linear infinite;
+  opacity: 0;
+  transition: opacity 200ms;
+}
+.rotating-border:hover::before {
+  opacity: 1;
+}
+
+/* === Pulse dot === */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  display: inline-block;
+  animation: pulseDot 1.5s ease-in-out infinite;
+  box-shadow: 0 0 8px var(--green);
+}
+
+/* === Code block === */
+.code-block {
+  background: #050505;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* === Verdict colors === */
+.verdict-pass { color: var(--green); }
+.verdict-pause { color: var(--amber); }
+.verdict-deny { color: var(--red); }
+.bg-pass { background: rgba(74, 222, 128, 0.1); }
+.bg-pause { background: rgba(232, 160, 64, 0.1); }
+.bg-deny { background: rgba(248, 113, 113, 0.1); }
+
+/* === Tab === */
+.tab {
+  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 150ms;
+  text-transform: uppercase;
+}
+.tab:hover { color: var(--foreground); border-color: var(--border-2); }
+.tab.active-cyan { color: var(--cyan); border-color: var(--cyan-dim); background: rgba(0, 212, 255, 0.05); }
+.tab.active-amber { color: var(--amber); border-color: var(--amber-dim); background: rgba(232, 160, 64, 0.05); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--dim); }
