@@ -99,7 +99,7 @@ Token utility (design intent, subject to change):
 - **Website:** https://helix-iota-eosin.vercel.app
 - **X (Twitter):** [@helix_oracle](https://x.com/helix_oracle)
 - **GitHub:** https://github.com/wpeggg1-web/helix
-- **Virtuals:** https://app.virtuals.io/agents/0x31979DE7b6c53f12C1d7432E8E5aD6480dd3b781
+- **Virtuals:** https://app.virtuals.io/virtuals/89638
 
 ## License
 
