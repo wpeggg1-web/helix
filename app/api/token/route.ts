@@ -9,7 +9,7 @@ export async function GET() {
     token: {
       status: token.status,
       network: "Base",
-      chainId: 8453,
+      chain: token.chain,
       ca: token.ca,
       virtuals: token.virtuals,
       basescan: token.basescan,

@@ -1,51 +1,52 @@
-# AEGIS — Reputation that travels with your agent
+# HELIX — AI inference you can verify.
 
-> Drop-in SDK for AI agents. Every action becomes an on-chain receipt. Every receipt builds a portable, tamper-evident reputation. $AEGIS powers vouching, disputes, and privacy.
+> Decentralized inference network on Base. Every output is provable. Every node is staked. Pay per call in $HELIX.
 
-**Status:** pre-launch. SDK scaffolded, site live, token deploys on Virtuals (Base chain).
+**Status:** pre-launch. SDK scaffolded, site live, token deploys on Virtuals (Base, chain 8453).
 
 ## What it does
 
-| Standard agent | Aegis-backed agent |
+| Standard API | Helix-verified |
 |---|---|
-| No reputation layer | Staked vouches on-chain |
-| No receipts | Tamper-evident log on Base |
-| Anyone can claim anything | Public reputation score |
-| `rm -rf /` proceeds unchecked | DENY verdict before execution |
-| Anonymous | Wallet-bound, slashable |
+| Trust the platform | Trust math + stake |
+| No proof of model version | Hash of weights + version |
+| No proof of node | Staked operator ID |
+| No proof of input | sha256 prompt hash |
+| Closed-source weight handling | Verifiable on-chain receipt |
+| One price tier | Pay per token-out in $HELIX |
 
 ## Pages
 
-- `/` — hero, comparison, threat console, top agents
-- `/receipts` — live receipt stream + schema
-- `/sdk` — drop-in SDK with 4 code blocks (install / writeReceipt / getScore / ZK privacy)
-- `/leaderboard` — top 20 agents by reputation
-- `/token` — $AEGIS utility, distribution, launch info
+- `/` — hero, comparison, live feed preview, threats, top nodes, network pulse, token CTA
+- `/inference` — live inference stream + receipt schema
+- `/sdk` — 4 code blocks (install / infer / verify / runNode) + pricing tiers
+- `/nodes` — full 20-node leaderboard ranked by uptime/stake/grade
+- `/token` — $HELIX utility (5 functions) + distribution + "not launched" stub
 
 ## API
 
 ```
-GET /api/agents              # list, sort=score|receipts|stake, limit=N
-GET /api/agents/[id]         # single agent detail
-GET /api/token               # token metadata + status
+GET /api/nodes              # list, sort=uptime|stake|inferences|grade
+GET /api/nodes/[id]         # single node detail
+GET /api/token              # token metadata + status
 ```
 
 ## Stack
 
 - **Next.js 16** (App Router, TypeScript)
 - **Tailwind 4** (CSS variables, dark theme)
-- **PIL** (banner generation, system fonts)
-- **No external services** — fully in-memory, deploys to Vercel in 1 click
+- **PIL** (logo + banner generation, system fonts)
+- **No external services** — fully in-memory, deploys to Vercel in 1 command
 
 ## Visual DNA
 
 - Bg `#0a0a0a` (PRXVT black)
-- Primary cyan `#00d4ff` (PRXVT signature)
-- Secondary amber `#e8a040` (Charon verdict color)
-- Tertiary magenta `#ec4899` (Basemate glow + premium tier)
+- Primary cyan `#00d4ff` (PRXVT signature) — DNA strand 1
+- Secondary magenta `#ec4899` (Basemate glow) — DNA strand 2
+- Tertiary amber `#e8a040` (Charon verdict color)
 - Geist + Geist Mono
 - 1px `#1f1f1f` borders everywhere
-- Receipt log pattern (id + verdict + rule + sha256 hash)
+- DNA double-helix mark: two interweaving sine waves
 
 ## Develop
 
@@ -68,21 +69,23 @@ npm start
 vercel --prod
 ```
 
-## Banner
+## Brand assets
 
-`scripts/make-banner.py` — generates `public/banner.png` via PIL.
-Regenerate any time with `python3 scripts/make-banner.py`.
+```bash
+python3 scripts/make-logo.py   # logo-1024/512/256/128, favicon.ico multi-size, apple-touch, og-image
+python3 scripts/make-banner.py # banner.png 1500x500
+```
 
 ## Token
 
-$AEGIS deploys on Virtuals (Base, chain ID 8453). Until launch, the site shows a "not launched" stub — no fake CA, no fake holders.
+$HELIX deploys on Virtuals (Base, chain 8453). Until launch, the site shows a "not launched" stub — no fake CA, no fake holders.
 
 Token utility (design intent, subject to change):
-1. **Stake-to-vouch** — back an agent's reputation, slashed if false
-2. **Dispute bond** — challenge a verdict, refunded if upheld
-3. **Oracle query fee** — pay to query reputation data
-4. **Privacy tier** — pay for ZK-proof receipts
-5. **Governance** — vote on protocol parameters
+1. **Pay per inference** — caller → node, $HELIX per token-out
+2. **Stake to run a node** — operator stake, slashable for false outputs
+3. **Vouch for model version** — back a model, rewarded if popular
+4. **Dispute bond** — challenge output, refunded if upheld
+5. **Governance** — vote on whitelist + fee tiers
 
 ## License
 

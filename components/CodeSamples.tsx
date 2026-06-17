@@ -1,16 +1,17 @@
 import { sdkSamples } from "@/lib/data";
 
-function CodeBlock({ label, code, accent = "cyan" }: { label: string; code: string; accent?: "cyan" | "amber" }) {
-  const accentClass = accent === "cyan" ? "text-cyan border-cyan/20" : "text-amber border-amber/20";
+function CodeBlock({ label, code, accent = "cyan" }: { label: string; code: string; accent?: "cyan" | "magenta" }) {
+  const accentClass = accent === "cyan" ? "border-cyan/30 bg-cyan/[0.03]" : "border-magenta/30 bg-magenta/[0.03]";
+  const labelColor = accent === "cyan" ? "text-cyan" : "text-magenta";
   return (
-    <div className="card overflow-hidden">
-      <div className={`flex items-center justify-between px-4 py-2 border-b border-border bg-[#131010] ${accentClass}`}>
-        <span className="text-[10px] uppercase tracking-wider font-mono font-bold">{label}</span>
-        <span className="text-[10px] text-dim font-mono">copy</span>
+    <div className={`terminal ${accentClass}`}>
+      <div className="terminal-bar">
+        <span className="dot bg-red/60" />
+        <span className="dot bg-amber/60" />
+        <span className="dot bg-green/60" />
+        <span className={`ml-2 text-[10px] uppercase tracking-wider font-bold ${labelColor}`}>{label}</span>
       </div>
-      <pre className="p-4 overflow-x-auto text-[12px] leading-[1.7] font-mono text-foreground/90">
-        <code>{code}</code>
-      </pre>
+      <pre className="p-4 overflow-x-auto text-foreground text-[12.5px] leading-relaxed"><code>{code}</code></pre>
     </div>
   );
 }
@@ -18,10 +19,9 @@ function CodeBlock({ label, code, accent = "cyan" }: { label: string; code: stri
 export default function CodeSamples() {
   return (
     <div className="space-y-4">
-      <CodeBlock label="$ install" code={sdkSamples.install} accent="cyan" />
-      <CodeBlock label="write receipt" code={sdkSamples.receipt} accent="cyan" />
-      <CodeBlock label="query reputation" code={sdkSamples.score} accent="amber" />
-      <CodeBlock label="zk privacy mode" code={sdkSamples.privacy} accent="amber" />
+      {sdkSamples.map((s) => (
+        <CodeBlock key={s.label} label={s.label} code={s.code} accent={s.accent as "cyan" | "magenta"} />
+      ))}
     </div>
   );
 }

@@ -3,45 +3,40 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { brand } from "@/lib/data";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
-  title: "AEGIS — Reputation that travels with your agent",
-  description: "Drop-in SDK for AI agents. Every action becomes an on-chain receipt. Every receipt builds a portable, tamper-evident reputation. $AEGIS on Base.",
+  metadataBase: new URL("https://helix-oracle.vercel.app"),
+  title: { default: `${brand.name} — ${brand.tagline}`, template: `%s · ${brand.name}` },
+  description: brand.subtitle,
+  keywords: ["AI inference", "decentralized", "verifiable AI", "inference oracle", "Base"],
   openGraph: {
-    title: "AEGIS — Reputation that travels with your agent",
-    description: "Drop-in SDK for AI agents. On-chain receipts, portable reputation, privacy-preserving.",
-    siteName: "AEGIS",
+    title: `${brand.name} — ${brand.tagline}`,
+    description: brand.subtitle,
+    url: "https://helix-oracle.vercel.app",
+    siteName: brand.name,
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "AEGIS — Reputation that travels with your agent",
-    description: "Drop-in SDK for AI agents. On-chain receipts, portable reputation.",
-  },
+  twitter: { card: "summary_large_image", title: brand.name, description: brand.tagline },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <head>
         <meta name="virtual-protocol-site-verification" content="02a6b010ed3e8033b27ffcc1a1993bf3" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+        <link rel="icon" type="image/png" sizes="128x128" href="/logo-128.png" />
+        <link rel="icon" type="image/png" sizes="256x256" href="/logo-256.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta property="og:image" content="https://helix-oracle.vercel.app/og-image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://helix-oracle.vercel.app/og-image.png" />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <Header />
