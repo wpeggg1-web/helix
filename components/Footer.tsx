@@ -27,7 +27,7 @@ export default function Footer() {
             <li><a href="/token" className="hover:text-foreground">$HELIX utility</a></li>
             <li>
               {live && token.basescan ? (
-                <a href={`${token.basescan}/token/${token.ca}`} className="hover:text-foreground" target="_blank" rel="noreferrer">Basescan ↗</a>
+                <a href={token.basescan} className="hover:text-foreground" target="_blank" rel="noreferrer">Basescan ↗</a>
               ) : (
                 <span className="text-dim">not launched</span>
               )}

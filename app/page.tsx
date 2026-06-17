@@ -3,7 +3,7 @@ import Reveal from "@/components/Reveal";
 import ComparisonTable from "@/components/ComparisonTable";
 import InferenceLog from "@/components/InferenceLog";
 import NodeCard from "@/components/NodeCard";
-import { brand, stats, nodes, liveFeed, threatTypes } from "@/lib/data";
+import { brand, stats, token, nodes, liveFeed, threatTypes } from "@/lib/data";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
             <div className="flex items-center gap-2 mb-6 text-xs">
               <span className="px-2 py-1 border border-border rounded text-dim font-mono">v0.1.0</span>
               <span className="text-dim">·</span>
-              <span className="text-dim font-mono">{brand.network} · pre-launch</span>
+              <span className="text-dim font-mono">{brand.network} · live</span>
             </div>
           </Reveal>
           <Reveal delay={100}>
@@ -162,7 +162,7 @@ export default function Home() {
             <div>
               <div className="text-dim text-xs font-mono mb-3">/ 06 · $HELIX</div>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">Stake to run. Pay to call.</h2>
-              <p className="text-muted mb-6">$HELIX is the work token. Operators stake to run nodes and earn per inference. Callers pay in $HELIX per token-out. Token launches on Virtuals — Base chain.</p>
+              <p className="text-muted mb-6">$HELIX is live on Virtuals (Base). Operators stake to run nodes and earn per inference. Callers pay in $HELIX per token-out. <a href={token.virtuals} target="_blank" rel="noreferrer" className="text-cyan hover:underline">Trade →</a></p>
               <Link href="/token" className="btn-primary">$HELIX utility →</Link>
             </div>
             <div className="card p-6 border-magenta/30 glow-magenta">

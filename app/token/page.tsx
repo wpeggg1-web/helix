@@ -20,7 +20,31 @@ export default function TokenPage() {
         </p>
       </Reveal>
 
-      {!live && (
+      {live ? (
+        <Reveal delay={150}>
+          <div className="card p-6 mb-12 border-cyan/30 glow-cyan">
+            <div className="flex items-center justify-between mb-4">
+              <div className="text-cyan text-xs font-mono">status · live</div>
+              <div className="text-dim text-xs font-mono">chain · Base (8453)</div>
+            </div>
+            <div className="mb-4">
+              <div className="text-dim text-xs font-mono mb-1">contract address</div>
+              <a
+                href={token.basescan}
+                target="_blank"
+                rel="noreferrer"
+                className="text-cyan font-mono text-sm hover:underline break-all"
+              >
+                {token.ca}
+              </a>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <a href={token.virtuals} target="_blank" rel="noreferrer" className="btn-primary">Buy on Virtuals →</a>
+              <a href={token.basescan} target="_blank" rel="noreferrer" className="btn-secondary">Basescan ↗</a>
+            </div>
+          </div>
+        </Reveal>
+      ) : (
         <Reveal delay={150}>
           <div className="card p-6 mb-12 border-amber/30">
             <div className="text-amber text-xs font-mono mb-2">status · not launched</div>
@@ -76,14 +100,27 @@ export default function TokenPage() {
 
       <Reveal delay={400}>
         <div className="card p-6">
-          <h2 className="text-2xl font-bold mb-3">Get notified at launch</h2>
+          <h2 className="text-2xl font-bold mb-3">
+            {live ? "Run a node. Earn $HELIX." : "Get notified at launch"}
+          </h2>
           <p className="text-muted text-sm mb-4">
-            Follow <a href={`https://x.com/${brand.x}`} className="text-cyan hover:underline" target="_blank" rel="noreferrer">@{brand.x.replace("_", "")}</a> on X for the announcement.
-            Or <a href={`https://github.com/${brand.github}`} className="text-cyan hover:underline" target="_blank" rel="noreferrer">star the GitHub repo</a> for SDK updates.
+            {live ? (
+              <>
+                Token is live on Virtuals (Base). Buy $HELIX to pay per inference or stake to run a node.
+                Follow <a href={`https://x.com/${brand.x}`} className="text-cyan hover:underline" target="_blank" rel="noreferrer">@{brand.x}</a> on X for ecosystem updates.
+                Star <a href={`https://github.com/${brand.github}`} className="text-cyan hover:underline" target="_blank" rel="noreferrer">the GitHub repo</a> for SDK updates.
+              </>
+            ) : (
+              <>
+                Follow <a href={`https://x.com/${brand.x}`} className="text-cyan hover:underline" target="_blank" rel="noreferrer">@{brand.x.replace("_", "")}</a> on X for the announcement.
+                Or <a href={`https://github.com/${brand.github}`} className="text-cyan hover:underline" target="_blank" rel="noreferrer">star the GitHub repo</a> for SDK updates.
+              </>
+            )}
           </p>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             <Link href="/sdk" className="btn-primary">SDK overview</Link>
             <Link href="/inference" className="btn-secondary">Live feed</Link>
+            {live && <a href={token.virtuals} target="_blank" rel="noreferrer" className="btn-secondary">Trade $HELIX →</a>}
           </div>
         </div>
       </Reveal>

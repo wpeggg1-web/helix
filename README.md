@@ -3,11 +3,11 @@
 [![X: @helix_oracle](https://img.shields.io/badge/X-@helix_oracle-00d4ff?style=flat-square&logo=x&logoColor=white)](https://x.com/helix_oracle)
 [![GitHub: wpeggg1-web/helix](https://img.shields.io/badge/GitHub-wpeggg1__web%2Fhelix-ec4899?style=flat-square&logo=github)](https://github.com/wpeggg1-web/helix)
 [![Base](https://img.shields.io/badge/Base-mainnet-0052ff?style=flat-square)](https://basescan.org)
-[![Status: pre-launch](https://img.shields.io/badge/status-pre--launch-e8a040?style=flat-square)](#token)
+[![Status: live](https://img.shields.io/badge/status-live-00d4ff?style=flat-square)](https://basescan.org/token/0x31979DE7b6c53f12C1d7432E8E5aD6480dd3b781)
 
 > Decentralized inference network on Base. Every output is provable. Every node is staked. Pay per call in $HELIX.
 
-**Status:** pre-launch. SDK scaffolded, site live, token deploys on Virtuals (Base, chain 8453).
+**Status:** live on Virtuals (Base, chain 8453). Token CA: [`0x31979DE7b6c53f12C1d7432E8E5aD6480dd3b781`](https://basescan.org/token/0x31979DE7b6c53f12C1d7432E8E5aD6480dd3b781). 1B supply, 18 decimals.
 
 **Follow:** [@helix_oracle](https://x.com/helix_oracle) on X for launch updates.
 
@@ -28,7 +28,7 @@
 - `/inference` — live inference stream + receipt schema
 - `/sdk` — 4 code blocks (install / infer / verify / runNode) + pricing tiers
 - `/nodes` — full 20-node leaderboard ranked by uptime/stake/grade
-- `/token` — $HELIX utility (5 functions) + distribution + "not launched" stub
+- `/token` — $HELIX utility (5 functions) + distribution + live CA
 
 ## API
 
@@ -85,7 +85,7 @@ python3 scripts/make-banner.py # banner.png 1500x500
 
 ## Token
 
-$HELIX deploys on Virtuals (Base, chain 8453). Until launch, the site shows a "not launched" stub — no fake CA, no fake holders.
+$HELIX is **live** on Virtuals (Base, chain 8453). Contract: [`0x31979DE7b6c53f12C1d7432E8E5aD6480dd3b781`](https://basescan.org/token/0x31979DE7b6c53f12C1d7432E8E5aD6480dd3b781). 1B supply, 18 decimals.
 
 Token utility (design intent, subject to change):
 1. **Pay per inference** — caller → node, $HELIX per token-out
@@ -99,7 +99,7 @@ Token utility (design intent, subject to change):
 - **Website:** https://helix-iota-eosin.vercel.app
 - **X (Twitter):** [@helix_oracle](https://x.com/helix_oracle)
 - **GitHub:** https://github.com/wpeggg1-web/helix
-- **Virtuals (post-launch):** TBA
+- **Virtuals:** https://app.virtuals.io/agents/0x31979DE7b6c53f12C1d7432E8E5aD6480dd3b781
 
 ## License
 
