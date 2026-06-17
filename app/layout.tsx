@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <head>
-        <meta name="virtual-protocol-site-verification" content="02a6b010ed3e8033b27ffcc1a1993bf3" />
+        <meta name="virtual-protocol-site-verification" content="7206e5225ad97baa718fd39f2b7d675e" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
         <link rel="icon" type="image/png" sizes="128x128" href="/logo-128.png" />
